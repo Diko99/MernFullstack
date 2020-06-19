@@ -5,11 +5,11 @@ import propTypes from 'prop-types'
 
 const Button = (props) => {
   const className = [props.className];
-  if(props.isPrimary) className.push('btn-primary')
-  if(props.isSmall) className.push('btn-sm')
-  if(props.isLarge) className.push('btn-lg')
-  if(props.isBlock) className.push('btn-block')
-  if(props.hasShadow) className.push('btn-shadow')
+  if(props.isPrimary) className.push(' btn-primary ')
+  if(props.isSmall) className.push(' btn-sm ')
+  if(props.isLarge) className.push(' btn-lg ')
+  if(props.isBlock) className.push(' btn-block ')
+  if(props.hasShadow) className.push(' btn-shadow ')
 
   const onClick = () => {
     if(props.onClick) props.onClick()
@@ -77,9 +77,10 @@ Button.propTypes = {
   target: propTypes.string,
   href: propTypes.string,
   className: propTypes.string,
+  isPrimary: propTypes.bool,
   isDisabled: propTypes.bool,
   isLoading: propTypes.bool,  
-  isSmall: propTypes.bool,  
+  isSmall: propTypes.bool,
   isLarge: propTypes.bool,  
   isBlock: propTypes.bool,  
   hasShadow: propTypes.bool,  
