@@ -11,7 +11,7 @@ const Hero = props => {
 
   const showMostPicked = () => {
     window.scrollTo({
-      top: props.refMostedPicked.current.offsetTop - 30,
+      top: props.refMostPicked.current.offsetTop - 130,
       behavior: 'smooth'
     })
   }
