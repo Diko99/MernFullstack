@@ -11,7 +11,7 @@ const Hero = props => {
 
   const showMostPicked = () => {
     window.scrollTo({
-      top: props.refMostPicked.current.offsetTop - 130,
+      top: props.refMostPicked.current.offsetTop - 10,
       behavior: 'smooth'
     })
   }
@@ -29,6 +29,7 @@ const Hero = props => {
             another memorable moments.
           </p>
           <Button
+            type='link'
             className='btn px-5'
             hasShadow
             isPrimary

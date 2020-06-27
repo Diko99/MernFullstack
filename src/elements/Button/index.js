@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import propTypes from 'prop-types'
-
+import './index.scss'
 
 const Button = (props) => {
   const className = [props.className];

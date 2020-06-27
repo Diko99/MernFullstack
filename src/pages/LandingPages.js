@@ -5,6 +5,7 @@ import Hero from 'parts/Hero.js'
 import MostPicked from 'parts/MostPicked'
 import Categories from 'parts/Categories'
 import Testimony from 'parts/Testimony';
+import Footer from 'parts/Footer';
 
 export default class LandingPages extends Component {
   constructor(props) {
@@ -27,7 +28,8 @@ export default class LandingPages extends Component {
         <Categories
           data={landingPage.categories}
         />
-        <Testimony />
+        <Testimony data={landingPage.testimonial} />
+        <Footer />
       </>
     )
   }
