@@ -3,8 +3,8 @@ import Button from 'elements/Button'
 
 const IconText = () => {
   return (
-    <Button className='brand-text-icon' href='' type='link'>
-      Stay<span className='text-grey-900'>cation</span>
+    <Button className='brand-text-icon font-weight-bold' href='' type='link'>
+      Stay<span className='text-gray-600'>cation</span>
     </Button>
   )
 }
