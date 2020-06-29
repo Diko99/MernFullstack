@@ -46,8 +46,37 @@ export default function Date(props) {
   }
 
   return (
-    <div>
-      
+    <div
+      ref={refDate}
+      className={['input-date mb-3', props.outerClassName].join(' ')}
+    >
+      <div className='input-group'>
+        <div className='input-group-prepend by-gray-900'>
+          <span className='input-group-text'>
+            <img src={iconCalender} alt='icon-calender' />
+          </span>
+        </div>
+        <input
+          readOnly
+          type='text'
+          className='form-control'
+          value={displayDate}
+          placeholder={placeholder}
+          onClick={() => setIsShowed(!isShowed)}
+        />
+        {isShowed && (
+            <div className='date-range-wrapper'>
+              <DataRange
+                editableDateInputs={true}
+                onChange={datePickerChange}
+                moveRangeOnFirstSelection={false}
+                onRangeFocusChange={check}
+                ranges={[value]}
+              />
+            </div>
+          )
+        }
+      </div>
     </div>
   )
 }
