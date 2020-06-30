@@ -3,11 +3,11 @@ import propTypes from 'prop-types'
 import { DataRange } from 'react-date-range'
 
 import './index.scss'
-import 'react-date-range/dist/styles.css'
-import 'react-date-range/dist/default.scss'
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 
 import formatDate from 'utils/formatDate'
-import iconCalender from 'assets/icons/ic_calender.svg'
+import iconCalender from '../../../assets/icons/ic_calender.svg'
 
 export default function Date(props) {
   const {value, placeholder, name} = props
@@ -31,7 +31,7 @@ export default function Date(props) {
     focus.indexOf(1) < 0 && setIsShowed(false)
   }
 
-  const displayDate = `${value.startDate ? FormData(value.startDate) : ''}${
+  const displayDate = `${value.startDate ? formatDate(value.startDate) : ''}${
     value.endDate ? ' - ' + formatDate(value.endDate) : ''
   }`
 

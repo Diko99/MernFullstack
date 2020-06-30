@@ -13,6 +13,11 @@ export default class LandingPages extends Component {
     this.refMostPicked = React.createRef()
   }
   
+  componentDidMount() {
+    window.title = 'Staycation | Home'
+    window.scrollTo(0, 0)
+  }
+
   render() {
     return (
       <>

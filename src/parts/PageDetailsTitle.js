@@ -4,8 +4,9 @@ import Fade from 'react-reveal/Fade'
 import Breadcrumb from 'elements/BreadCrumb'
 
 export default function PageDetailsTitle({ data, breadcrumb }) {
+  console.log(data, breadcrumb)
   return (
-    <section className='container spacing-sm'>
+    <section className='container spacing-sm mt-5'>
       <Fade bottom>
         <div className='row align-items-center'>
           <div className='col'>
