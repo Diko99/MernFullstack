@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react'
 import propTypes from 'prop-types'
-import { DataRange } from 'react-date-range'
+
+import { DateRange } from 'react-date-range'
 
 import './index.scss'
 import 'react-date-range/dist/styles.css'; // main style file
@@ -12,7 +13,17 @@ import iconCalender from '../../../assets/icons/ic_calender.svg'
 export default function Date(props) {
   const {value, placeholder, name} = props
   const [isShowed, setIsShowed] = useState(false)
-  
+ 
+  const datePickerChange = value => {
+    const target = {
+      target: {
+        value: value.selection,
+        name: name
+      }
+    }
+    props.onChange(target)
+  }
+
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside)
     return () => {
@@ -35,25 +46,15 @@ export default function Date(props) {
     value.endDate ? ' - ' + formatDate(value.endDate) : ''
   }`
 
-  const datePickerChange = value => {
-    const target = {
-      target: {
-        value: value.selection,
-        name: name
-      }
-    }
-    props.onChange(target)
-  }
-
   return (
     <div
       ref={refDate}
       className={['input-date mb-3', props.outerClassName].join(' ')}
     >
       <div className='input-group'>
-        <div className='input-group-prepend by-gray-900'>
+        <div className='input-group-prepend bg-gray-900'>
           <span className='input-group-text'>
-            <img src={iconCalender} alt='icon-calender' />
+            <img src={iconCalender} alt='icon calender' />
           </span>
         </div>
         <input
@@ -66,7 +67,7 @@ export default function Date(props) {
         />
         {isShowed && (
             <div className='date-range-wrapper'>
-              <DataRange
+              <DateRange
                 editableDateInputs={true}
                 onChange={datePickerChange}
                 moveRangeOnFirstSelection={false}

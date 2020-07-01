@@ -96,7 +96,11 @@ section {
 }
 
 .card {
-  height: 100%;
+  border-radius: 15px;
+
+  &.bordered {
+    border: 1px solid $gray-200;
+  }
 
   .tag {
     z-index: 3;

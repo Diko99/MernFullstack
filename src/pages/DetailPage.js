@@ -5,6 +5,9 @@ import FeaturedImage from 'parts/FeaturedImage'
 import ItemsDetails from '../json/itemDetails.json'
 import PageDetailsDesc from 'parts/PageDetailsDesc'
 import BookingForm from 'parts/BookingForm'
+import Categories from 'parts/Categories'
+import Testimony from 'parts/Testimony'
+import Footer from 'parts/Footer'
 
 export default class DetailPage extends Component {
   componentDidMount() {
@@ -26,7 +29,7 @@ export default class DetailPage extends Component {
           data={ItemsDetails}
         />
         <FeaturedImage data={ItemsDetails.imageUrls} />
-        <div className='container'>
+        <div className='container mb-5'>
           <div className='row'>
             <div className='col-7 pr-5'>
               <PageDetailsDesc data={ItemsDetails} />
@@ -36,6 +39,9 @@ export default class DetailPage extends Component {
             </div>
           </div>
         </div>
+        <Categories data={ItemsDetails.categories}/>
+        <Testimony data={ItemsDetails.testimonial} />
+        <Footer />
       </>
     )
   }
