@@ -75,8 +75,7 @@ Number.defaultProps = {
   suffix: ''
 }
 Number.propTypes = ({
-  // value: propTypes.oneOf([propTypes.string, propTypes.number]),
-  value: [propTypes.number, propTypes.string],
+  value: propTypes.oneOf([propTypes.string, propTypes.number]),
   onChange: propTypes.func,
   placeholder: propTypes.string,
   outerClassName: propTypes.string,

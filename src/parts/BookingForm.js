@@ -60,6 +60,10 @@ export default class BookingForm extends Component {
     }
   }
 
+  componentDidMount(){
+    console.log(this.props)
+  }
+
   render() {
     const { data } = this.state
     const { itemDetails, startBooking } = this.props
@@ -102,6 +106,7 @@ export default class BookingForm extends Component {
           hasShadow
           isPrimary
           isBlock
+          href={`/checkout`}
           onClick={startBooking}
         >
           Continue to Book

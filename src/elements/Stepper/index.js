@@ -2,22 +2,21 @@ import React, { useState } from 'react'
 import propTypes from 'prop-types'
 
 export default function Stepper(props) {
-
   const { steps, initialStep } = props
-  const stepKeys = Object.keys(steps) //mengambil object dan dijadikan array
+  const stepsKeys = Object.keys(steps) //mengambil object dan dijadikan array
 
   const [CurrentStep, setCurrentStep] = useState(
-    stepKeys.indexOf(initialStep) > -1 ? initialStep : stepKeys[0]
+    stepsKeys.indexOf(initialStep) > -1 ? initialStep : stepsKeys[0]
   )
-  const totalStep = stepKeys.length
-  const indexStep = stepKeys.indexOf(CurrentStep)
+  const totalStep = stepsKeys.length
+  const indexStep = stepsKeys.indexOf(CurrentStep)
 
-  const prevStep = ()  => {
-    if (+indexStep > 0) setCurrentStep(stepKeys[indexStep - 1])
+  function prevStep() {
+    if (+indexStep > 0) setCurrentStep(stepsKeys[indexStep - 1])
   }
   
-  const nextStep = ()  => {
-    if (+indexStep < totalStep) setCurrentStep(stepKeys[indexStep + 1])
+  function nextStep() {
+    if (+indexStep < totalStep) setCurrentStep(stepsKeys[indexStep + 1])
   }
 
   return <>{props.children(prevStep, nextStep, CurrentStep, steps)}</>

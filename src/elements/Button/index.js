@@ -5,7 +5,7 @@ import './index.scss'
 
 const Button = (props) => {
   const className = [props.className];
-  if(props.isPrimary) className.push('btn-primary ')
+  if(props.isPrimary) className.push('btn bg-primary text-white')
   if(props.isSmall) className.push(' btn-sm ')
   if(props.isLarge) className.push(' btn-lg ')
   if(props.isBlock) className.push(' btn-block ')

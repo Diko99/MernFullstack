@@ -96,7 +96,7 @@ export default class Checkout extends Component {
                   <Controller>
                     {
                       data.firstname !== '' &&
-                      data.lasttname !== '' &&
+                      data.lastname !== '' &&
                       data.email !== '' &&
                       data.phone !== '' && (
                         <Fade>
