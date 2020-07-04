@@ -16,15 +16,60 @@ export default function Text(props) {
     errorResponse
   } = props;
 
+  const [HasError, setHasError] = useState(null)
+  let pattern = ""
+  if ( type === 'email') pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  if ( type === 'tel') pattern = "[0-9]*"
+
+  const onChange = event => {
+    const target = {
+      target: {
+        name: name,
+        value: event.target.value
+      }
+    }
+
+    if(type === 'email') {
+      if(!pattern.test(event.target.value)) setHasError(errorResponse)
+      else setHasError(null)
+    }
+    if(type === 'tel') {
+      if(event.target.validity.valid) props.onChange(target);
+    } else {
+      props.onChange(target)
+    }
+  }
+
   return (
-    <div>
-      
+    <div className={['input-text mb-3', outerClassname].join(' ')}>
+      <div className='input-group'>
+        {prepend && (
+          <div className='input-group-prepend bg-gray-900'>
+            <span className='input-group-text'>{prepend}</span>
+          </div>  
+        )}
+        <input
+          name={name}
+          types={type}
+          pattern={pattern}
+          className={['form-control', inputClassName].join(' ')}
+          value={value}
+          placeholder={placeholder}
+          onChange={onChange}
+        />
+        {append && (
+          <div className='input-group-append bg-gray-900'>
+            <span className='input-group-text'>{append}</span>
+          </div>  
+        )}
+      </div>
+      {HasError && <span className='error-helper'>{HasError}</span>}
     </div>
   )
 }
 
 Text.defaultProps = {
-  types: 'text',
+  type: 'text',
   pattern: '',
   placeholder: 'Please type here...',
   errorResponse: 'Please match the requested format.'
